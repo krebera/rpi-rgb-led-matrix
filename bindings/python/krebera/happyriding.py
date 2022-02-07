@@ -23,8 +23,9 @@ class RunText(SampleBase):
         img_width, img_height = image.size
         offscreen_canvas.SetImage(image, 0, 0)
 
-        time.sleep(10)
-
+        while True:
+            time.sleep(0.01)
+            offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
 
 # Main function
 if __name__ == "__main__":
