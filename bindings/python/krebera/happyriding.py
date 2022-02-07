@@ -20,12 +20,13 @@ class RunText(SampleBase):
         # graphics.DrawText(offscreen_canvas, font, pos, 10, textColor, my_text)
 
         image = Image.open("./img/bike.ppm").convert('RGB')
-        img_width, img_height = image.size
-        offscreen_canvas.SetImage(image, 0, 0)
+        image.thumbnail((self.matrix.width, self.matrix.height), Image.ANTIALIAS)
+        self.matrix.SetImage(image.convert('RGB'))
+        # offscreen_canvas.SetImage(image, 0, 0)
 
-        while True:
-            time.sleep(0.1)
-            offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
+        # while True:
+            # time.sleep(0.1)
+            # offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
 
 # Main function
 if __name__ == "__main__":
