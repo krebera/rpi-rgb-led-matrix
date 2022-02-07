@@ -15,8 +15,6 @@ class RunText(SampleBase):
         font = graphics.Font()
         font.LoadFont("../../../fonts/6x10.bdf")
         textColor = graphics.Color(255, 255, 0)
-        graphics.DrawText(self.matrix, font, 15, 45, textColor, "Charging")
-        graphics.DrawText(self.matrix, font, 11, 55, textColor, "Bike")
 
         image = Image.new("RGB", (32, 32))  # Can be larger than matrix if wanted!!
         draw = ImageDraw.Draw(image)  # Declare Draw instance before prims
@@ -25,6 +23,8 @@ class RunText(SampleBase):
         for n in range(-32, 33):  # Start off top-left, move off bottom-right
             self.matrix.Clear()
             self.matrix.SetImage(image, 0, 0)
+            graphics.DrawText(self.matrix, font, 15, 45, textColor, "Charging")
+            graphics.DrawText(self.matrix, font, 11, 55, textColor, "Bike")
             time.sleep(0.05)
 
         # while True:
