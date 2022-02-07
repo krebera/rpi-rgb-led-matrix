@@ -2,6 +2,7 @@
 # Display a runtext with double-buffering.
 from samplebase import SampleBase
 from rgbmatrix import graphics
+from PIL import Image
 import time
 
 
@@ -16,12 +17,11 @@ class RunText(SampleBase):
         textColor = graphics.Color(255, 255, 0)
         pos = 0
         my_text = "Happy Riding"
+        graphics.DrawText(offscreen_canvas, font, pos, 10, textColor, my_text)
 
-        while True:
-            offscreen_canvas.Clear()
-            graphics.DrawText(offscreen_canvas, font, pos, 10, textColor, my_text)
-            time.sleep(0.05)
-            offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
+        image = Image.open("../img/bike.ppm").convert('RGB')
+        img_width, img_height = image.size
+        offscreen_canvas.setImage(image, 0)
 
 
 # Main function
