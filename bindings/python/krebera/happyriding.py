@@ -19,7 +19,7 @@ class RunText(SampleBase):
         my_text = "Happy Riding"
         graphics.DrawText(offscreen_canvas, font, pos, 10, textColor, my_text)
 
-        image = Image.open("/img/bike.ppm").convert('RGB')
+        image = Image.open("./img/bike.ppm").convert('RGB')
         img_width, img_height = image.size
         offscreen_canvas.setImage(image, 0)
 
