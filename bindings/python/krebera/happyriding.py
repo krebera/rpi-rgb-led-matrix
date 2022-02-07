@@ -21,7 +21,7 @@ class RunText(SampleBase):
 
         image = Image.open("./img/bike.ppm").convert('RGB')
         img_width, img_height = image.size
-        offscreen_canvas.SetImage(image, 0)
+        offscreen_canvas.SetImage(image, 0, 0)
 
         time.sleep(10)
 
