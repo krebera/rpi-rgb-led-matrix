@@ -17,7 +17,7 @@ class RunText(SampleBase):
         textColor = graphics.Color(255, 255, 0)
         pos = 0
         my_text = "Happy Riding"
-        graphics.DrawText(offscreen_canvas, font, pos, 10, textColor, my_text)
+        # graphics.DrawText(offscreen_canvas, font, pos, 10, textColor, my_text)
 
         image = Image.open("./img/bike.ppm").convert('RGB')
         img_width, img_height = image.size
