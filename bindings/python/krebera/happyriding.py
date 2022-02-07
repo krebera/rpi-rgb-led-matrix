@@ -25,7 +25,7 @@ class RunText(SampleBase):
 
         while True:
             time.sleep(0.05)
-            offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
+            # offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
 
 
 # Main function
