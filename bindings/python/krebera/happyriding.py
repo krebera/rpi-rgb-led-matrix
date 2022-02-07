@@ -16,7 +16,7 @@ class RunText(SampleBase):
         font.LoadFont("../../../fonts/6x10.bdf")
         textColor = graphics.Color(255, 255, 0)
         graphics.DrawText(self.matrix, font, 15, 45, textColor, "Happy")
-        graphics.DrawText(self.matrix, font, 15, 55, textColor, "riding :)")
+        graphics.DrawText(self.matrix, font, 11, 55, textColor, "Riding!")
 
         image = Image.open("./img/bike.ppm").convert('RGB')
         image.thumbnail((self.matrix.width, self.matrix.height), Image.ANTIALIAS)
