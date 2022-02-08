@@ -28,5 +28,6 @@ def getJSON(newData):
 
     print(data[0])
 
-bar.run()
+# bar.run()
+
 asyncio.run(get_strava_data(closure = getJSON))
