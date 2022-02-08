@@ -1,0 +1,16 @@
+Brakes
+Rotors
+Stators
+Frame
+Chain
+Gears
+Saddle
+Spokes
+Hub
+Rim
+Tires
+Valves
+Pedals
+Cranks
+Grips
+Tubes
