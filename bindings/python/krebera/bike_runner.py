@@ -27,11 +27,13 @@ async def updateBar():
         progress = progress + 1
 
 # TODO: MAKE STRAVA TOKEN PKCE FLOW PART OF THE ASYNC FLOW
+# TODO: CHEEKY MESSAGE FOR FLAVOR BEFORE STATE BREAKDOWN
+# TODO: STAT BREAKDOWN
 
 async def main():
     tasks = []
     tasks.append(asyncio.ensure_future(updateBar()))
-    # tasks.append(asyncio.ensure_future(get_strava_data()))
+    tasks.append(asyncio.ensure_future(get_strava_data()))
 
     json = await asyncio.gather(*tasks)
     print(json)
