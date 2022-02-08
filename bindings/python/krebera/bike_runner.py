@@ -19,15 +19,15 @@ from animtest import LoadingBar
 
 
 def getJSON(newData):
-    global data
-    global bar
+    # global data
+    # global bar
     
-    data = newData
-    bar.dismiss()
+    # data = newData
+    # bar.dismiss()
 
-    print(newData)
+    print("Closure")
 
-data = None
+# data = None
 bar = LoadingBar()
 
 async def updateBar():
@@ -42,7 +42,8 @@ async def main():
     tasks.append(asyncio.ensure_future(updateBar()))
     tasks.append(asyncio.ensure_future(get_strava_data(closure = getJSON)))
 
-    await asyncio.gather(*tasks)
+    json = await asyncio.gather(*tasks)
+    print(json)
 
 try:
     # Start loop
