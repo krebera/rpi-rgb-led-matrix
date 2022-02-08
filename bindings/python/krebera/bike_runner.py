@@ -42,7 +42,7 @@ async def main():
     task2 = asyncio.create_task(get_strava_data(closure = getJSON))
 
     await task1
-    await task2
+    # await task2
 
 try:
     # Start loop
