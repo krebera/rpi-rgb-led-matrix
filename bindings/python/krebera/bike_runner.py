@@ -37,14 +37,17 @@ async def updateBar():
         await asyncio.sleep(0.05)
         progress = progress + 1
 
-def main():
-    asyncio.run(updateBar())
-    asyncio.run(get_strava_data(closure = getJSON))
+async def main():
+    task1 = asyncio.create_task(updateBar())
+    task2 = asyncio.create_task(get_strava_data(closure = getJSON))
+
+    await task1
+    await task2
 
 try:
     # Start loop
     print("Press CTRL-C to stop sample")
-    main()
+    asyncio.run(main())
 except KeyboardInterrupt:
     print("Exiting\n")
     sys.exit(0)
