@@ -25,8 +25,8 @@ class RunText(SampleBase):
 
         for n in range(8, 56 * 4):  # Start off top-left, move off bottom-right
             # self.matrix.Clear()
-            draw.rectangle((2, 40, n // 2, 50), fill=(0, 255, 0), outline=(0, 255, 0))
-            self.matrix.SetImage(image, 0, 0)
+            draw.rectangle((8, 40, n // 4, 50), fill=(0, 255, 0), outline=(0, 255, 0))
+            self.matrix.SetImage(image, 0, 40)
             time.sleep(0.05)
 
         # while True:
