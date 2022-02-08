@@ -42,7 +42,7 @@ async def main():
     tasks.append(asyncio.ensure_future(updateBar()))
     tasks.append(asyncio.ensure_future(get_strava_data(closure = getJSON)))
 
-    await asyncio.gather(tasks)
+    await asyncio.gather(*tasks)
 
 try:
     # Start loop
