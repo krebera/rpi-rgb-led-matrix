@@ -21,14 +21,14 @@ class RunText(SampleBase):
         draw.rectangle((0, 0, 56, 10), fill=(0, 0, 0), outline=(0, 255, 0))
 
         graphics.DrawText(self.matrix, font, 10, 15, textColor, "Charging")
-        graphics.DrawText(self.matrix, font, 18, 25, textColor, "Bike")
+        graphics.DrawText(self.matrix, font, 18, 25, textColor, "Brakes")
 
         for n in range(0, 56 * 4):  # Start off top-left, move off bottom-right
             # self.matrix.Clear()
             if( n == 56 * 2):
                 self.matrix.Clear()
-                graphics.DrawText(self.matrix, font, 10, 15, textColor, "Absorbing")
-                graphics.DrawText(self.matrix, font, 10, 25, textColor, "Coolness")
+                graphics.DrawText(self.matrix, font, 5, 15, textColor, "Absorbing")
+                graphics.DrawText(self.matrix, font, 5, 25, textColor, "Coolness")
 
             draw.rectangle((0, 0, n // 4, 10), fill=(0, 255, 0), outline=(0, 255, 0))
             self.matrix.SetImage(image, 0, 40)
