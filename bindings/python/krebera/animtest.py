@@ -11,10 +11,10 @@ class RunText(SampleBase):
     def __init__(self, *args, **kwargs):
         super(RunText, self).__init__(*args, **kwargs)
 
-    def getVerb():
+    def getVerb(self):
         return random.choice(list(open('./assets/verbs.txt')))
 
-    def getNoun():
+    def getNoun(self):
         return random.choice(list(open('./assets/nouns.txt')))
 
     def run(self):
