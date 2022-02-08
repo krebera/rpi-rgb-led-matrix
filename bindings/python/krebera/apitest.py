@@ -20,15 +20,10 @@ import aiohttp
 import asyncio
 
 async def get_strava_data(closure, before = None, after = None, page = 1, per_page = 30):
-    
+
     async with aiohttp.ClientSession(headers = {"Authorization": "Bearer " + strava_tokens['access_token']}) as session:
         strava_url = f'https://www.strava.com/api/v3/athlete/activities?page={str(page)}&per_page={str(per_page)}{("&before=" + str(before)) if before else ""}{("&after=" + str(after)) if after else ""}'
 
         async with session.get(strava_url) as resp:
             strava = await resp.json()
             closure(strava)
-
-def printme(data):
-    print(data)
-
-asyncio.run(get_strava_data(closure=printme))
