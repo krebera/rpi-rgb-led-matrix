@@ -12,22 +12,32 @@ from PIL import Image
 from PIL import ImageDraw
 import time
 import random
+import sys
 
 # Custom Canvases
 from animtest import LoadingBar
 
-data = None
-bar = LoadingBar()
-bar.process()
 
 def getJSON(newData):
     global data
-
+    global bar
+    
     data = newData
     bar.dismiss()
 
     print(newData)
 
-# bar.run()
+data = None
+bar = LoadingBar()
 
-asyncio.run(get_strava_data(closure = getJSON))
+def main():
+    bar.run()
+    asyncio.run(get_strava_data(closure = getJSON))
+
+try:
+    # Start loop
+    print("Press CTRL-C to stop sample")
+    main()
+except KeyboardInterrupt:
+    print("Exiting\n")
+    sys.exit(0)

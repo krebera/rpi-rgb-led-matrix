@@ -8,8 +8,8 @@ import time
 import random
 
 class LoadingBar(SampleBase):
-    def __init__(self, *args, **kwargs):
-        super(LoadingBar, self).__init__(*args, **kwargs)
+    def __init__(self):
+        super(LoadingBar, self).__init__()
 
     def getVerb(self):
         return random.choice(list(open('./assets/verbs.txt'))).rstrip()
@@ -48,9 +48,3 @@ class LoadingBar(SampleBase):
     
     def dismiss(self):
         self.matrix.Clear()
-
-# Main function
-if __name__ == "__main__":
-    bar = LoadingBar()
-    if (not bar.process()):
-        bar.print_help()
