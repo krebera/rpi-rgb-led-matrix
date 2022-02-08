@@ -23,9 +23,9 @@ class RunText(SampleBase):
         graphics.DrawText(self.matrix, font, 15, 45, textColor, "Charging")
         graphics.DrawText(self.matrix, font, 11, 55, textColor, "Bike")
 
-        for n in range(2, 60):  # Start off top-left, move off bottom-right
+        for n in range(2, 120):  # Start off top-left, move off bottom-right
             # self.matrix.Clear()
-            draw.rectangle((2, 2, n, 10), fill=(0, 255, 0), outline=(0, 255, 0))
+            draw.rectangle((2, 2, n // 2, 10), fill=(0, 255, 0), outline=(0, 255, 0))
             self.matrix.SetImage(image, 0, 0)
             time.sleep(0.02)
 
