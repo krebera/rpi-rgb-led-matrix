@@ -17,17 +17,6 @@ import sys
 # Custom Canvases
 from animtest import LoadingBar
 
-
-def getJSON(newData):
-    # global data
-    # global bar
-    
-    # data = newData
-    # bar.dismiss()
-
-    print("Closure")
-
-# data = None
 bar = LoadingBar()
 
 async def updateBar():
@@ -37,13 +26,16 @@ async def updateBar():
         await asyncio.sleep(0.05)
         progress = progress + 1
 
+# TODO: MAKE STRAVA TOKEN PKCE FLOW PART OF THE ASYNC FLOW
+
 async def main():
     tasks = []
     tasks.append(asyncio.ensure_future(updateBar()))
-    tasks.append(asyncio.ensure_future(get_strava_data()))
+    # tasks.append(asyncio.ensure_future(get_strava_data()))
 
     json = await asyncio.gather(*tasks)
     print(json)
+    bar.dismiss()
 
 try:
     # Start loop
