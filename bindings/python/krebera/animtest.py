@@ -28,8 +28,8 @@ class RunText(SampleBase):
 
             if( n == 56 * 2):
                 self.matrix.Clear()
-                graphics.DrawText(self.matrix, font, 5, 15, textColor, "Flashing")
-                graphics.DrawText(self.matrix, font, 12, 25, textColor, "N-Rays")
+                graphics.DrawText(self.matrix, font, 5, 15, textColor, "Flushing")
+                graphics.DrawText(self.matrix, font, 15, 25, textColor, "Coils")
 
             if( n == 56 * 4):
                 self.matrix.Clear()
