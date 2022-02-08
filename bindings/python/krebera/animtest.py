@@ -16,17 +16,17 @@ class RunText(SampleBase):
         font.LoadFont("../../../fonts/6x10.bdf")
         textColor = graphics.Color(0, 255, 0)
 
-        image = Image.new("RGB", (64, 12))  # Can be larger than matrix if wanted!!
+        image = Image.new("RGB", (56, 10))  # Can be larger than matrix if wanted!!
         draw = ImageDraw.Draw(image)  # Declare Draw instance before prims
-        draw.rectangle((8, 40, 56, 50), fill=(0, 0, 0), outline=(0, 255, 0))
+        draw.rectangle((0, 0, 56, 10), fill=(0, 0, 0), outline=(0, 255, 0))
 
         graphics.DrawText(self.matrix, font, 15, 5, textColor, "Charging")
         graphics.DrawText(self.matrix, font, 11, 15, textColor, "Bike")
 
-        for n in range(8, 56 * 4):  # Start off top-left, move off bottom-right
+        for n in range(0, 56 * 4):  # Start off top-left, move off bottom-right
             # self.matrix.Clear()
-            draw.rectangle((8, 40, n // 4, 50), fill=(0, 255, 0), outline=(0, 255, 0))
-            self.matrix.SetImage(image, 0, 40)
+            draw.rectangle((0, 0, n // 4, 10), fill=(0, 255, 0), outline=(0, 255, 0))
+            self.matrix.SetImage(image, 4, 40)
             time.sleep(0.05)
 
         # while True:
