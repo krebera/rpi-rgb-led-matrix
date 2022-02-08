@@ -30,8 +30,15 @@ def getJSON(newData):
 data = None
 bar = LoadingBar()
 
+async def updateBar():
+    progress = 0
+    while progress < 100:
+        bar.render(progress)
+        await asyncio.sleep(0.05)
+        progress = progress + 1
+
 def main():
-    bar.run()
+    asyncio.run(updateBar())
     asyncio.run(get_strava_data(closure = getJSON))
 
 try:
