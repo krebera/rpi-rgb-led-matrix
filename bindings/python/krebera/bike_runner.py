@@ -38,11 +38,11 @@ async def updateBar():
         progress = progress + 1
 
 async def main():
-    task1 = asyncio.create_task(updateBar())
-    task2 = asyncio.create_task(get_strava_data(closure = getJSON))
+    tasks = []
+    tasks.append(asyncio.ensure_future(updateBar()))
+    tasks.append(asyncio.ensure_future(get_strava_data(closure = getJSON)))
 
-    await task1
-    # await task2
+    await asyncio.gather(tasks)
 
 try:
     # Start loop
