@@ -20,8 +20,8 @@ class RunText(SampleBase):
         draw = ImageDraw.Draw(image)  # Declare Draw instance before prims
         draw.rectangle((0, 0, 56, 10), fill=(0, 0, 0), outline=(0, 255, 0))
 
-        graphics.DrawText(self.matrix, font, 10, 15, textColor, "Charging")
-        graphics.DrawText(self.matrix, font, 18, 25, textColor, "Brakes")
+        graphics.DrawText(self.matrix, font, 8, 15, textColor, "Charging")
+        graphics.DrawText(self.matrix, font, 13, 25, textColor, "Brakes")
 
         for n in range(0, 56 * 4):  # Start off top-left, move off bottom-right
             # self.matrix.Clear()
