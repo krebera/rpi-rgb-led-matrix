@@ -37,7 +37,7 @@ class RunText(SampleBase):
                 graphics.DrawText(self.matrix, font, 8, 25, textColor, "Stators")
 
             draw.rectangle((0, 0, n // 6, 10), fill=(0, 255, 0), outline=(0, 255, 0))
-            self.matrix.SetImage(image, 0, 40)
+            self.matrix.SetImage(image, 4, 40)
             time.sleep(0.02)
 
         # while True:
