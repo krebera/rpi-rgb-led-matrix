@@ -18,4 +18,5 @@ async def get_strava_data(before = None, after = None, page = 1, per_page = 30):
 
         async with session.get(strava_url) as resp:
             strava = await resp.json()
+            print("Got strava data")
             return strava
