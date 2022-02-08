@@ -18,6 +18,7 @@ from animtest import LoadingBar
 
 data = None
 bar = LoadingBar()
+bar.process()
 
 def getJSON(newData):
     global data
@@ -27,4 +28,5 @@ def getJSON(newData):
 
     print(data[0])
 
+bar.run()
 asyncio.run(get_strava_data(closure = getJSON))
