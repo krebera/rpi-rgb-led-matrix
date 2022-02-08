@@ -7,9 +7,9 @@ from PIL import ImageDraw
 import time
 import random
 
-class RunText(SampleBase):
+class LoadingBar(SampleBase):
     def __init__(self, *args, **kwargs):
-        super(RunText, self).__init__(*args, **kwargs)
+        super(LoadingBar, self).__init__(*args, **kwargs)
 
     def getVerb(self):
         return random.choice(list(open('./assets/verbs.txt'))).rstrip()
@@ -45,13 +45,12 @@ class RunText(SampleBase):
             draw.rectangle((0, 0, n // 6, 10), fill=(0, 255, 0), outline=(0, 255, 0))
             self.matrix.SetImage(image, 4, 40)
             time.sleep(0.02)
-
-        # while True:
-            # time.sleep(0.1)
-            # offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
+    
+    def dismiss(self):
+        self.matrix.Clear()
 
 # Main function
 if __name__ == "__main__":
-    run_text = RunText()
-    if (not run_text.process()):
-        run_text.print_help()
+    bar = LoadingBar()
+    if (not bar.process()):
+        bar.print_help()
