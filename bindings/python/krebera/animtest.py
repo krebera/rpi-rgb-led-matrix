@@ -16,9 +16,9 @@ class RunText(SampleBase):
         font.LoadFont("../../../fonts/6x10.bdf")
         textColor = graphics.Color(0, 255, 0)
 
-        image = Image.new("RGB", (32, 12))  # Can be larger than matrix if wanted!!
+        image = Image.new("RGB", (64, 12))  # Can be larger than matrix if wanted!!
         draw = ImageDraw.Draw(image)  # Declare Draw instance before prims
-        draw.rectangle((2, 2, 30, 10), fill=(0, 0, 0), outline=(0, 255, 0))
+        draw.rectangle((2, 2, 60, 10), fill=(0, 0, 0), outline=(0, 255, 0))
 
         graphics.DrawText(self.matrix, font, 15, 45, textColor, "Charging")
         graphics.DrawText(self.matrix, font, 11, 55, textColor, "Bike")
