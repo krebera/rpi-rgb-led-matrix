@@ -12,10 +12,10 @@ class RunText(SampleBase):
         super(RunText, self).__init__(*args, **kwargs)
 
     def getVerb(self):
-        return random.choice(list(open('./assets/verbs.txt')))
+        return random.choice(list(open('./assets/verbs.txt'))).rstrip()
 
     def getNoun(self):
-        return random.choice(list(open('./assets/nouns.txt')))
+        return random.choice(list(open('./assets/nouns.txt'))).rstrip()
 
     def run(self):
         font = graphics.Font()
