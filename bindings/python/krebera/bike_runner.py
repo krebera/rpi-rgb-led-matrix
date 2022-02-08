@@ -26,7 +26,7 @@ def getJSON(newData):
     data = newData
     bar.dismiss()
 
-    print(data[0])
+    print(newData)
 
 # bar.run()
 
