@@ -18,14 +18,14 @@ class RunText(SampleBase):
 
         image = Image.new("RGB", (32, 32))  # Can be larger than matrix if wanted!!
         draw = ImageDraw.Draw(image)  # Declare Draw instance before prims
-        draw.rectangle((2, 2, 60, 10), fill=(0, 0, 0), outline=(0, 255, 0))
+        draw.rectangle((2, 2, 30, 20), fill=(0, 0, 0), outline=(0, 255, 0))
 
         for n in range(-32, 33):  # Start off top-left, move off bottom-right
             self.matrix.Clear()
             self.matrix.SetImage(image, 0, 0)
             graphics.DrawText(self.matrix, font, 15, 45, textColor, "Charging")
             graphics.DrawText(self.matrix, font, 11, 55, textColor, "Bike")
-            time.sleep(0.01)
+            time.sleep(0.02)
 
         # while True:
             # time.sleep(0.1)
