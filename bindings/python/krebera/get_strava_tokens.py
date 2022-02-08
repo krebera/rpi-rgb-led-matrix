@@ -52,4 +52,4 @@ async def loadStravaTokens():
             #Use new Strava tokens from now
             strava_tokens = new_strava_tokens
             
-        return strava_tokens
+    return strava_tokens
