@@ -23,7 +23,7 @@ class RunText(SampleBase):
         graphics.DrawText(self.matrix, font, 8, 15, textColor, "Charging")
         graphics.DrawText(self.matrix, font, 13, 25, textColor, "Brakes")
 
-        for n in range(0, 56 * 4):  # Start off top-left, move off bottom-right
+        for n in range(0, 56 * 6):  # Start off top-left, move off bottom-right
             # self.matrix.Clear()
 
             if( n == 56 * 2):
@@ -31,14 +31,14 @@ class RunText(SampleBase):
                 graphics.DrawText(self.matrix, font, 5, 15, textColor, "Absorbing")
                 graphics.DrawText(self.matrix, font, 5, 25, textColor, "Coolness")
 
-            if( n == 56 * 3):
+            if( n == 56 * 4):
                 self.matrix.Clear()
-                graphics.DrawText(self.matrix, font, 5, 15, textColor, "Calibrating")
-                graphics.DrawText(self.matrix, font, 5, 25, textColor, "Stator Slots")
+                graphics.DrawText(self.matrix, font, 2, 15, textColor, "Stator")
+                graphics.DrawText(self.matrix, font, 2, 25, textColor, "Calibration")
 
             draw.rectangle((0, 0, n // 4, 10), fill=(0, 255, 0), outline=(0, 255, 0))
             self.matrix.SetImage(image, 0, 40)
-            time.sleep(0.05)
+            time.sleep(0.02)
 
         # while True:
             # time.sleep(0.1)
