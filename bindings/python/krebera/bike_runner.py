@@ -4,22 +4,12 @@
 from get_strava_tokens import loadStravaTokens
 from apitest import get_strava_data
 import asyncio
-
-# Animation Imports
-from samplebase import SampleBase
-from rgbmatrix import graphics
-from PIL import Image
-from PIL import ImageDraw
-import time
-import random
 import sys
 
 # Custom Canvases
 from animtest import LoadingBar
-from make_wooper import Wooper
 
 bar = LoadingBar()
-wooper = Wooper()
 
 async def updateBar():
     progress = 0
@@ -46,9 +36,6 @@ try:
     # Start loop
     print("Press CTRL-C to stop sample")
     asyncio.run(main())
-    
-    # wooper.render()
-    # time.sleep(10)
 except KeyboardInterrupt:
     print("Exiting\n")
     sys.exit(0)
