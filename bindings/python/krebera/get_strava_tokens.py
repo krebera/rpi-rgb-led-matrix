@@ -1,9 +1,10 @@
 import requests
 import json
 import time
-
 import aiohttp
 import asyncio
+
+# https://medium.com/swlh/using-python-to-connect-to-stravas-api-and-analyse-your-activities-dummies-guide-5f49727aac86
 
 '''
 def firstTimeAuth(code):
@@ -44,7 +45,8 @@ async def loadStravaTokens():
             }) as auth_response:
 
                 #Save response as json in new variable
-                new_strava_tokens = auth_response.json()
+                new_strava_tokens = await auth_response.json()
+                
                 # Save new tokens to file
                 with open('assets/strava_tokens.json', 'w') as outfile:
                     json.dump(new_strava_tokens, outfile)

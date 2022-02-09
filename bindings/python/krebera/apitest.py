@@ -3,8 +3,6 @@ import json
 import time
 from get_strava_tokens import loadStravaTokens
 
-# https://medium.com/swlh/using-python-to-connect-to-stravas-api-and-analyse-your-activities-dummies-guide-5f49727aac86
-
 import aiohttp
 import asyncio
 
