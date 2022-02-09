@@ -11,7 +11,6 @@ from animtest import LoadingBar
 from stupid import StupidTest
 
 bar = LoadingBar()
-stupid = StupidTest()
 
 async def updateBar():
     progress = 0
@@ -24,6 +23,9 @@ async def updateBar():
 # TODO: GENERAL WINDOW CLASS WITH AN UPDATE, SETUP, TEARDOWN
 # TODO: CHEEKY MESSAGE FOR FLAVOR BEFORE STATE BREAKDOWN
 # TODO: STAT BREAKDOWN
+
+#TODO: You need to create exactly one matrix and then assign and deassign views to it
+# You can't own multiple
 
 async def main():
     tasks = []
