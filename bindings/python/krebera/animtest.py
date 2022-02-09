@@ -18,11 +18,22 @@ class LoadingBar(SampleBase):
         self.verb = self.getVerb()
         self.noun = self.getNoun()
 
+        self.used_verbs = [self.verb]
+        self.used_nouns = [self.noun]
+
     def getVerb(self):
-        return random.choice(list(open('./assets/verbs.txt'))).rstrip()
+        this_verb = self.verb
+        while(this_verb in self.used_verbs):
+            this_verb = random.choice(list(open('./assets/verbs.txt'))).rstrip()
+        self.used_verbs.append(self.verb)
+        return this_verb
 
     def getNoun(self):
-        return random.choice(list(open('./assets/nouns.txt'))).rstrip()
+        this_noun = self.noun
+        while(this_noun in self.used_nouns):
+            this_noun = random.choice(list(open('./assets/nouns.txt'))).rstrip()
+        self.used_nouns.append(self.noun)
+        return this_noun
 
     def render(self, progress):
         if(progress == 33 or progress == 66):
@@ -41,4 +52,6 @@ class LoadingBar(SampleBase):
         self.matrix.SetImage(image, 4, 40)
     
     def dismiss(self):
+        self.used_nouns = []
+        self.used_verbs = []
         self.matrix.Clear()

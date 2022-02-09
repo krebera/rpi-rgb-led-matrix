@@ -8,6 +8,8 @@ import os
 
 # https://medium.com/swlh/using-python-to-connect-to-stravas-api-and-analyse-your-activities-dummies-guide-5f49727aac86
 
+# Run this code from the terminal with a CMD line argument for an auth code to get a newe strava tokens json
+
 def firstTimeAuth(code):
   # Make Strava auth API call with your 
   # client_code, client_secret and code
