@@ -44,10 +44,10 @@ async def main():
 try:
     # Start loop
     print("Press CTRL-C to stop sample")
-    # asyncio.run(main())
-    wooper = Wooper()
-    wooper.render()
-    time.sleep(10)
+    asyncio.run(main())
+    # wooper = Wooper()
+    # wooper.render()
+    # time.sleep(10)
 except KeyboardInterrupt:
     print("Exiting\n")
     sys.exit(0)
