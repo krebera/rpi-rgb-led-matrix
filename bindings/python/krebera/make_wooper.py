@@ -1,13 +1,8 @@
 #!/usr/bin/env python
 
-# Display a runtext with double-buffering.
 from samplebase import SampleBase
-from rgbmatrix import graphics
 from PIL import Image
 from PIL import ImageDraw
-import time
-import random
-import asyncio
 
 class Wooper(SampleBase):
     def __init__(self):
