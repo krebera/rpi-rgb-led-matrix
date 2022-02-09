@@ -46,6 +46,8 @@ async def loadStravaTokens():
 
                 #Save response as json in new variable
                 new_strava_tokens = await auth_response.json()
+
+                print(new_strava_tokens)
                 
                 # Save new tokens to file
                 with open('assets/strava_tokens.json', 'w') as outfile:
