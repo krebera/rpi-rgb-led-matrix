@@ -25,14 +25,14 @@ class LoadingBar(SampleBase):
         this_verb = self.verb
         while(this_verb in self.used_verbs):
             this_verb = random.choice(list(open('./assets/verbs.txt'))).rstrip()
-        self.used_verbs.append(self.verb)
+        self.used_verbs.append(this_verb)
         return this_verb
 
     def getNoun(self):
         this_noun = self.noun
         while(this_noun in self.used_nouns):
             this_noun = random.choice(list(open('./assets/nouns.txt'))).rstrip()
-        self.used_nouns.append(self.noun)
+        self.used_nouns.append(this_noun)
         return this_noun
 
     def render(self, progress):
