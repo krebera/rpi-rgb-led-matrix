@@ -15,8 +15,8 @@ class LoadingBar(SampleBase):
         self.font.LoadFont("../../../fonts/6x10.bdf")
         self.textColor = graphics.Color(0, 255, 0)
 
-        self.verb = self.getVerb()
-        self.noun = self.getNoun()
+        self.verb = random.choice(list(open('./assets/verbs.txt'))).rstrip()
+        self.noun = random.choice(list(open('./assets/nouns.txt'))).rstrip()
 
         self.used_verbs = [self.verb]
         self.used_nouns = [self.noun]
