@@ -3,10 +3,11 @@ import json
 import time
 import aiohttp
 import asyncio
+import argparse
+import os
 
 # https://medium.com/swlh/using-python-to-connect-to-stravas-api-and-analyse-your-activities-dummies-guide-5f49727aac86
 
-'''
 def firstTimeAuth(code):
   # Make Strava auth API call with your 
   # client_code, client_secret and code
@@ -21,11 +22,13 @@ def firstTimeAuth(code):
                   )
   #Save json response as a variable
   strava_tokens = response.json()
+
+  os.remove('assets/strava_tokens.json')
+
   # Save tokens to file
   with open('assets/strava_tokens.json', 'w') as outfile:
       json.dump(strava_tokens, outfile)
   print("Saved to file!")
-'''
 
 async def loadStravaTokens():
     # Get the tokens from file to connect to Strava
@@ -50,6 +53,7 @@ async def loadStravaTokens():
                 print(new_strava_tokens)
                 
                 # Save new tokens to file
+                os.remove('assets/strava_tokens.json')
                 with open('assets/strava_tokens.json', 'w') as outfile:
                     json.dump(new_strava_tokens, outfile)
 
@@ -57,3 +61,10 @@ async def loadStravaTokens():
             strava_tokens = new_strava_tokens
             
     return strava_tokens
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Get sum Tokies')
+    parser.add_argument('auth_tokie', type=str)
+    args = parser.parse_args()
+
+    firstTimeAuth(args.auth_tokie)
