@@ -5,11 +5,13 @@ from get_strava_tokens import loadStravaTokens
 from apitest import get_strava_data
 import asyncio
 import sys
+from make_wooper import Wooper
 
 # Custom Canvases
 from animtest import LoadingBar
 
 bar = LoadingBar()
+wooper = Wooper()
 
 async def updateBar():
     progress = 0
