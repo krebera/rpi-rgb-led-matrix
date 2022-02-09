@@ -32,7 +32,7 @@ def firstTimeAuth(code):
 
 async def loadStravaTokens():
     # Get the tokens from file to connect to Strava
-    with open('assets/strava_tokens.json') as json_file:
+    with open('assets/strava_tokens.json', 'r') as json_file:
         strava_tokens = json.load(json_file)
 
     ## If access_token has expired then use the refresh_token to get the new access_token
