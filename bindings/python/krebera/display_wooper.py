@@ -25,10 +25,26 @@ async def get_pokemon_sprite(pokemon_data):
             return
 
 async def show_pokemon():
-    pokemon_data = await asyncio.create_task(get_pokemon_data("wooper"))
+    # pokemon_data = await asyncio.create_task(get_pokemon_data("wooper"))
     # print(pokemon_data)
-    await asyncio.create_task(get_pokemon_sprite(pokemon_data))
-    # im = Image.open('./temp/pokemon.png')
-    # im.show()
+    # await asyncio.create_task(get_pokemon_sprite(pokemon_data))
+    im = Image.open('./temp/pokemon.png').convert('RGBA')
+    w, h = im.size
+
+    nw = 50
+    nh = 50
+
+    left = (w - nw)//2
+    top = (h - nh)//2
+    right = (w + nw)//2
+    bottom = (h + nh)//2
+
+    # Crop the center of the image
+    im = im.crop((left, top, right, bottom))
+
+    print(w)
+    background = Image.new('RGBA', im.size, (0,0,0))
+    alpha_composite = Image.alpha_composite(background, im).convert('RGB')
+    alpha_composite.show()
 
 asyncio.run(show_pokemon())
