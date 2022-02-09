@@ -19,6 +19,7 @@ from animtest import LoadingBar
 from make_wooper import Wooper
 
 bar = LoadingBar()
+wooper = Wooper()
 
 async def updateBar():
     progress = 0
@@ -45,9 +46,9 @@ try:
     # Start loop
     print("Press CTRL-C to stop sample")
     # asyncio.run(main())
-    wooper = Wooper()
+    
     wooper.render()
-    time.sleep(10)
+    # time.sleep(10)
 except KeyboardInterrupt:
     print("Exiting\n")
     sys.exit(0)
