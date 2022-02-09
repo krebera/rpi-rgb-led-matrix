@@ -13,6 +13,7 @@ class SampleBase(object):
         options.rows = 64
         options.cols = 64
         options.pixel_mapper_config = "Rotate:270"
+        options.drop_privileges = False
 
         self.matrix = RGBMatrix(options = options)
 
