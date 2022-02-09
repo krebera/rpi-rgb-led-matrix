@@ -67,4 +67,6 @@ if __name__ == "__main__":
     parser.add_argument('auth_tokie', type=str)
     args = parser.parse_args()
 
+    print("Your tokie is " + args.auth_tokie)
+
     firstTimeAuth(args.auth_tokie)
