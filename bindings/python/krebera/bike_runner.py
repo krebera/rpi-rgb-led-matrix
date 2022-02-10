@@ -42,6 +42,7 @@ try:
     # asyncio.run(main())
     woop = Wooper()
     woop.render()
+    sleep(30)
 except KeyboardInterrupt:
     print("Exiting\n")
     sys.exit(0)
