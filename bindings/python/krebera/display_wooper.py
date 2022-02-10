@@ -58,7 +58,7 @@ async def show_pokemon(name):
 try:
     # Start loop
     print("Press CTRL-C to stop sample")
-    asyncio.run(show_pokemon())
+    asyncio.run(show_pokemon("wooper"))
     time.sleep(30)
 except KeyboardInterrupt:
     print("Exiting\n")
