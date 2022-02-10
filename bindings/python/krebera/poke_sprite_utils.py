@@ -37,6 +37,11 @@ def team_canvas(poke_list):
     bg = Image.new("RGB", (64, 64), (0, 0, 0))
     team_imgs = fetch_team_little_sprites_list(poke_list, 20, 20)
     bg.paste(team_imgs[0], (0,0))
+    bg.paste(team_imgs[1], (21,0))
+    bg.paste(team_imgs[2], (42,0))
+    bg.paste(team_imgs[2], (0,22))
+    bg.paste(team_imgs[2], (21,22))
+    bg.paste(team_imgs[2], (42,22))
     return bg
 
 # ===================== POKE API V2 ================================ #
