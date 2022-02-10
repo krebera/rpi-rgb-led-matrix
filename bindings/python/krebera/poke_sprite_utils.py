@@ -78,7 +78,7 @@ async def fetch_cleaned_poke_sprite_api(name, w, h):
     return alpha_comp(im)
 
 if __name__ == "__main__":
-    my_team = ["wooper", "machop", "alakazam", "rapidash", "electabuzz", "marowak"]
+    my_team = ["wooper", "machoke", "alakazam", "rapidash", "electabuzz", "marowak"]
     canvas = team_canvas(my_team)
     prev = ImagePreview()
     prev.set_im(canvas)
