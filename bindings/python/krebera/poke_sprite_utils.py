@@ -41,7 +41,7 @@ def fetch_team_little_sprites_list(poke_list, w, h):
 
 def team_canvas(poke_list):
     bg = Image.new("RGB", (64, 64), (0, 0, 0))
-    team_imgs = fetch_team_little_sprites_list(poke_list, 20, 30)
+    team_imgs = fetch_team_little_sprites_list(poke_list, 20, 20)
     bg.paste(team_imgs[0], (2, 8))
     bg.paste(team_imgs[1], (22,8))
     bg.paste(team_imgs[2], (42,8))
@@ -78,7 +78,7 @@ async def fetch_cleaned_poke_sprite_api(name, w, h):
     return alpha_comp(im)
 
 if __name__ == "__main__":
-    my_team = ["pikachu", "bulbasaur", "squirtle", "charmander", "meowth", "wooper"]
+    my_team = ["wooper", "machop", "alakazam", "rapidash", "electabuzz", "marowak"]
     canvas = team_canvas(my_team)
     prev = ImagePreview()
     prev.set_im(canvas)
