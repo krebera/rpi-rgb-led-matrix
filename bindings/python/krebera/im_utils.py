@@ -1,5 +1,5 @@
 from PIL import Image
-# from samplebase import SampleBase
+from samplebase import SampleBase
 
 def center_crop(im, nw, nh):
     w, h = im.size
