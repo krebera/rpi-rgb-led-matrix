@@ -2,10 +2,13 @@ import aiohttp
 import asyncio
 import aiofiles
 from PIL import Image
+import sys
+import time
+from make_wooper import Wooper
 
 async def get_pokemon_data(name):
     async with aiohttp.ClientSession() as session:
-        pokemon_url = f'https://pokeapi.co/api/v2/pokemon/wooper'
+        pokemon_url = f'https://pokeapi.co/api/v2/pokemon/' + name
 
         async with session.get(pokemon_url) as resp:
             pokemon_data = await resp.json()
@@ -24,10 +27,13 @@ async def get_pokemon_sprite(pokemon_data):
                 print("Got pokemon sprite")
             return
 
-async def show_pokemon():
-    # pokemon_data = await asyncio.create_task(get_pokemon_data("wooper"))
-    # print(pokemon_data)
-    # await asyncio.create_task(get_pokemon_sprite(pokemon_data))
+async def show_pokemon(name):
+
+    woop = Wooper()
+
+    pokemon_data = await asyncio.create_task(get_pokemon_data(name))
+    print(pokemon_data)
+    await asyncio.create_task(get_pokemon_sprite(pokemon_data))
     im = Image.open('./temp/pokemon.png').convert('RGBA')
     w, h = im.size
 
@@ -45,6 +51,15 @@ async def show_pokemon():
     print(w)
     background = Image.new('RGBA', im.size, (0,0,0))
     alpha_composite = Image.alpha_composite(background, im).convert('RGB')
-    alpha_composite.show()
 
-asyncio.run(show_pokemon())
+    woop.set_im(alpha_composite)
+    woop.render()
+
+try:
+    # Start loop
+    print("Press CTRL-C to stop sample")
+    asyncio.run(show_pokemon())
+    time.sleep(30)
+except KeyboardInterrupt:
+    print("Exiting\n")
+    sys.exit(0)
