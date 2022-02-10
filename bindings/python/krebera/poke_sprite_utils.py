@@ -3,11 +3,11 @@ from os.path import isfile, join
 import aiohttp
 import asyncio
 import aiofiles
-from im_utils import center_crop, alpha_comp
+from im_utils import center_crop, alpha_comp, scale_image, autocrop
 from PIL import Image, ImageDraw
 import time
 
-from krebera.im_utils import ImagePreview
+from im_utils import ImagePreview
 
 # ==================== LITTLE POKEMON SPRITES LOCAL ================ #
 # Not internet api based. Just fetching them from file
@@ -22,27 +22,32 @@ def get_little_sprites_list(poke_list):
 
     return icons
 
-def fetch_cleaned_poke_sprite_local(name, w, h):
+def fetch_poke_sprite_local(name, w, h, alpha_composite = True):
     sprite_list = get_little_sprites_list([name])
-    im = center_crop(Image.open('./assets/pokesprites/' + sprite_list[0]).convert('RGBA'), w, h)
-    return alpha_comp(im)
+    sprite = Image.open('./assets/pokesprites/' + sprite_list[0]).convert('RGBA')
+    im = scale_image(autocrop(sprite), w, h)
+
+    if(alpha_composite):
+        return alpha_comp(im)
+    else:
+        return im
 
 def fetch_team_little_sprites_list(poke_list, w, h):
     icon_list = get_little_sprites_list(poke_list)
     imgs = []
     for icon in icon_list:
-        imgs.append(fetch_cleaned_poke_sprite_local(icon, w, h))
+        imgs.append(fetch_poke_sprite_local(icon, w, h, alpha_composite = False))
     return imgs
 
 def team_canvas(poke_list):
     bg = Image.new("RGB", (64, 64), (0, 0, 0))
     team_imgs = fetch_team_little_sprites_list(poke_list, 20, 20)
-    bg.paste(team_imgs[0], (0,0))
-    bg.paste(team_imgs[1], (21,0))
-    # bg.paste(team_imgs[2], (42,0))
-    # bg.paste(team_imgs[3], (0,22))
-    # bg.paste(team_imgs[4], (21,22))
-    # bg.paste(team_imgs[5], (42,22))
+    bg.paste(team_imgs[0], (2, 8))
+    bg.paste(team_imgs[1], (22,8))
+    bg.paste(team_imgs[2], (42,8))
+    bg.paste(team_imgs[3], (2, 37))
+    bg.paste(team_imgs[4], (22,37))
+    bg.paste(team_imgs[5], (42,37))
     return bg
 
 # ===================== POKE API V2 ================================ #
@@ -73,9 +78,10 @@ async def fetch_cleaned_poke_sprite_api(name, w, h):
     return alpha_comp(im)
 
 if __name__ == "__main__":
-    my_team = ["pikachu", "bulbasaur", "squirtle", "charmander", "meowth", "lapras"]
+    my_team = ["pikachu", "bulbasaur", "squirtle", "charmander", "meowth", "wooper"]
     canvas = team_canvas(my_team)
     prev = ImagePreview()
     prev.set_im(canvas)
     prev.render()
     time.sleep(10)
+    # canvas.show()
