@@ -39,9 +39,9 @@ def team_canvas(poke_list):
     bg.paste(team_imgs[0], (0,0))
     bg.paste(team_imgs[1], (21,0))
     bg.paste(team_imgs[2], (42,0))
-    bg.paste(team_imgs[2], (0,22))
-    bg.paste(team_imgs[2], (21,22))
-    bg.paste(team_imgs[2], (42,22))
+    bg.paste(team_imgs[3], (0,22))
+    bg.paste(team_imgs[4], (21,22))
+    bg.paste(team_imgs[5], (42,22))
     return bg
 
 # ===================== POKE API V2 ================================ #
@@ -77,3 +77,4 @@ if __name__ == "__main__":
     prev = ImagePreview()
     prev.set_im(canvas)
     prev.render()
+    sleep(10)
