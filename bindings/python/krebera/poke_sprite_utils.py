@@ -83,5 +83,5 @@ if __name__ == "__main__":
     prev = ImagePreview()
     prev.set_im(canvas)
     prev.render()
-    time.sleep(10)
+    time.sleep(30)
     # canvas.show()
