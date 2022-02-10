@@ -28,9 +28,6 @@ async def get_pokemon_sprite(pokemon_data):
             return
 
 async def show_pokemon(name):
-
-    woop = Wooper()
-
     pokemon_data = await asyncio.create_task(get_pokemon_data(name))
     print(pokemon_data)
     await asyncio.create_task(get_pokemon_sprite(pokemon_data))
@@ -51,14 +48,15 @@ async def show_pokemon(name):
     print(w)
     background = Image.new('RGBA', im.size, (0,0,0))
     alpha_composite = Image.alpha_composite(background, im).convert('RGB')
-
-    woop.set_im(alpha_composite)
-    woop.render()
+    return alpha_composite
 
 try:
     # Start loop
     print("Press CTRL-C to stop sample")
-    asyncio.run(show_pokemon("wooper"))
+    poke_composite = asyncio.run(show_pokemon("wooper"))
+    woop = Wooper()
+    woop.set_im(poke_composite)
+    woop.render()
     time.sleep(30)
 except KeyboardInterrupt:
     print("Exiting\n")
