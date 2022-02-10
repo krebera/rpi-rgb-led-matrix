@@ -5,6 +5,7 @@ from get_strava_tokens import loadStravaTokens
 from apitest import get_strava_data
 import asyncio
 import sys
+import time
 
 # Custom Canvases
 from animtest import LoadingBar
@@ -42,7 +43,7 @@ try:
     # asyncio.run(main())
     woop = Wooper()
     woop.render()
-    sleep(30)
+    time.sleep(30)
 except KeyboardInterrupt:
     print("Exiting\n")
     sys.exit(0)
