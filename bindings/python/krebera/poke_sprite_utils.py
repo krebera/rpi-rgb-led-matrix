@@ -15,8 +15,6 @@ def get_little_sprites_list(poke_list):
 
     filtered_pokes = list(filter(lambda poke: "-" not in poke, [f for f in listdir("./assets/pokesprites") if isfile(join("./assets/pokesprites", f))]))
 
-    print(filtered_pokes)
-
     for team_member in poke_list:
         icon_path = next(filter(lambda poke: team_member in poke, filtered_pokes), None)
         icons.append(icon_path)
@@ -25,7 +23,7 @@ def get_little_sprites_list(poke_list):
 
 def fetch_cleaned_poke_sprite_local(name, w, h):
     sprite_list = get_little_sprites_list([name])
-    im = center_crop(Image.open('./assets/pokesprites/' + sprite_list[0] +'.png').convert('RGBA'), w, h)
+    im = center_crop(Image.open('./assets/pokesprites/' + sprite_list[0]).convert('RGBA'), w, h)
     return alpha_comp(im)
 
 def fetch_team_little_sprites_list(poke_list, w, h):
