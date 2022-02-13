@@ -12,7 +12,7 @@ from im_utils import ImagePreview
 
 if __name__ == "__main__":
     prev = ImagePreview()
-    prev.set_im(Image.open("./assets/home.ppm"))
+    prev.set_im(Image.open("./assets/take_this.ppm"))
     prev.render()
     time.sleep(30)
     # canvas.show()
